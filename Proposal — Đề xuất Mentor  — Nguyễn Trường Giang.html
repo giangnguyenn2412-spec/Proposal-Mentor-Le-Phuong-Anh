@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<!-- saved from url=(0112)file:///C:/Users/Windows%2010/Downloads/Proposal%20%E2%80%94%20Nguy%E1%BB%85n%20Tr%C6%B0%E1%BB%9Dng%20Giang.html -->
+<html lang="vi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal — YouTube Channel</title>
+<link href="./Proposal — Đề xuất Mentor  — Nguyễn Trường Giang_files/css2" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────
+   TOKENS  — edit here to retheme everything
+───────────────────────────────────────── */
+:root {
+  --bg:        #f2ede6;
+  --ink:       #0f0e0c;
+  --muted:     #6b6457;
+  --accent1:   #ff5c35;   /* orange-red */
+  --accent2:   #ffe14d;   /* yellow */
+  --accent3:   #b8ff6e;   /* lime */
+  --accent4:   #5b8fff;   /* blue */
+  --white:     #ffffff;
+  --border:    #d9d2c7;
+
+  --font-display: 'Space Mono', monospace;
+  --font-body:    'Space Grotesk', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ─── EDITABLE HINT ─── */
+[contenteditable]:focus {
+  outline: 2px dashed var(--accent1);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+[contenteditable]:hover { cursor: text; }
+
+.edit-badge {
+  position: fixed; bottom: 24px; right: 24px; z-index: 999;
+  background: var(--ink); color: var(--accent2);
+  font-family: var(--font-display); font-size: 11px;
+  padding: 10px 18px; border-radius: 30px;
+  display: flex; align-items: center; gap: 8px;
+  pointer-events: none;
+  opacity: 0; transition: opacity .3s;
+}
+.edit-badge.show { opacity: 1; }
+.edit-badge::before { content: '✏'; font-size: 13px; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px;
+  height: 60px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 13px; font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.nav-links { display: flex; gap: 32px; }
+.nav-links a {
+  font-size: 13px; font-weight: 500; text-decoration: none;
+  color: var(--muted); transition: color .15s;
+}
+.nav-links a:hover { color: var(--ink); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  padding: 120px 40px 80px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  align-items: end;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-text { align-self: end; }
+
+.hero-tag {
+  font-family: var(--font-display);
+  font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--accent1);
+  margin-bottom: 28px;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.hero-tag::before {
+  content: '';
+  width: 28px; height: 2px; background: var(--accent1);
+  flex-shrink: 0;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3.8rem, 8vw, 8rem);
+  font-weight: 700; line-height: 0.92;
+  letter-spacing: -0.04em;
+  margin-bottom: 36px;
+}
+
+.hero h1 .line2 {
+  display: block;
+  color: var(--accent1);
+  font-style: italic;
+}
+
+.hero-desc {
+  font-size: 1.05rem; color: var(--muted);
+  max-width: 52ch; line-height: 1.65;
+}
+
+.hero-card {
+  background: var(--ink);
+  color: var(--white);
+  padding: 28px 28px 32px;
+  border-radius: 12px;
+  align-self: end;
+}
+
+.hero-card-label {
+  font-family: var(--font-display);
+  font-size: 10px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--accent2);
+  margin-bottom: 20px;
+}
+
+.hero-meta-row {
+  display: flex; flex-direction: column; gap: 16px;
+}
+
+.hero-meta-item label {
+  display: block; font-size: 10px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-bottom: 3px;
+}
+
+.hero-meta-item span {
+  font-size: 14px; color: rgba(255,255,255,0.85);
+}
+
+.hero-cta {
+  margin-top: 28px;
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 22px;
+  border-radius: 40px;
+  font-family: var(--font-display);
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  cursor: pointer; border: none;
+  text-decoration: none; transition: transform .15s, opacity .15s;
+}
+.btn:hover { transform: translateY(-2px); opacity: .88; }
+
+.btn-primary { background: var(--accent1); color: var(--white); }
+.btn-ghost   { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.25); }
+
+/* ─── MARQUEE ─── */
+.marquee-wrap {
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeRun 22s linear infinite;
+}
+
+.marquee-track span {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 20px 28px;
+  letter-spacing: -0.02em;
+}
+
+.marquee-track span:nth-child(odd)  { color: var(--ink); }
+.marquee-track span:nth-child(even) { color: var(--accent1); font-style: italic; }
+.marquee-track .dot { color: var(--accent2); padding: 20px 8px; font-size: 1.8rem; }
+
+@keyframes marqueeRun {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ─── SECTION WRAPPER ─── */
+section {
+  padding: 88px 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-header {
+  display: flex; align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 52px;
+}
+
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700; letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+/* ─── LEARN SECTION ─── */
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.learn-card {
+  background: var(--white);
+  padding: 32px 26px 36px;
+  position: relative;
+}
+
+.learn-card:nth-child(1) { background: var(--accent2); }
+.learn-card:nth-child(2) { background: var(--white); }
+.learn-card:nth-child(3) { background: var(--accent3); }
+.learn-card:nth-child(4) { background: var(--accent4); color: var(--white); }
+
+.learn-card .num {
+  font-family: var(--font-display);
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.15em; opacity: .5;
+  margin-bottom: 40px;
+}
+
+.learn-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem; font-weight: 700;
+  line-height: 1.2; letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.learn-card p { font-size: 13.5px; line-height: 1.55; opacity: .75; }
+
+/* ─── MENTOR SECTION ─── */
+.mentor-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.mentor-big {
+  background: var(--ink);
+  color: var(--white);
+  border-radius: 12px;
+  padding: 48px 40px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  min-height: 420px;
+}
+
+.mentor-big-quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700; letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--accent2);
+  margin-bottom: 32px;
+}
+
+.mentor-big-body {
+  font-size: 15px; line-height: 1.65;
+  color: rgba(255,255,255,0.6);
+}
+
+.mentor-small-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.mentor-card {
+  background: var(--bg);
+  padding: 28px 24px;
+}
+
+.mentor-card:nth-child(2) { background: var(--accent1); color: var(--white); }
+.mentor-card:nth-child(3) { background: var(--accent3); }
+
+
+.mentor-card h4 {
+  font-family: var(--font-display);
+  font-size: 1rem; font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px; line-height: 1.2;
+}
+
+.mentor-card p { font-size: 13px; line-height: 1.55; opacity: .75; }
+
+/* ─── PHASES ─── */
+.phases { display: flex; flex-direction: column; gap: 2px; }
+
+.phase-row {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 200px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.phase-row:nth-child(1) .phase-left { background: var(--ink); color: var(--white); }
+.phase-row:nth-child(2) .phase-left { background: var(--accent1); color: var(--white); }
+.phase-row:nth-child(3) .phase-left { background: var(--accent3); color: var(--ink); }
+
+.phase-left {
+  padding: 32px 28px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+}
+
+.phase-left .ph-num {
+  font-family: var(--font-display);
+  font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; opacity: .5;
+  margin-bottom: 10px;
+}
+
+.phase-left .ph-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem; font-weight: 700;
+  letter-spacing: -0.03em; line-height: 1.15;
+}
+
+.phase-left .ph-span {
+  font-size: 12px; opacity: .45;
+  margin-top: 16px;
+}
+
+.phase-right {
+  padding: 28px 32px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 14px;
+}
+
+.phase-right .ph-focus {
+  font-family: var(--font-display);
+  font-size: 10px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--accent1);
+}
+
+.phase-right h4 {
+  font-family: var(--font-display);
+  font-size: 1rem; font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.phase-items {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 5px;
+}
+
+.phase-items li {
+  font-size: 13.5px; color: var(--muted);
+  padding-left: 16px; position: relative; line-height: 1.5;
+}
+.phase-items li::before {
+  content: '→'; position: absolute; left: 0;
+  color: var(--accent1); font-size: 11px;
+}
+
+.phase-items li.hl {
+  background: var(--accent2);
+  color: var(--ink);
+  padding: 3px 10px 3px 24px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.phase-items li.hl::before { left: 8px; }
+
+.phase-kpis {
+  display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+}
+
+.kpi-tag {
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 11px; font-weight: 700;
+  padding: 4px 12px; border-radius: 20px;
+}
+
+/* ─── CHECKIN ─── */
+.checkin-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.checkin-card {
+  background: var(--bg);
+  padding: 28px 24px;
+}
+
+.checkin-card:nth-child(1) { background: var(--accent1); color: var(--white); }
+.checkin-card:nth-child(4) { background: var(--ink); color: var(--white); }
+
+.checkin-card .freq {
+  font-family: var(--font-display);
+  font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; opacity: .6;
+  margin-bottom: 12px;
+}
+
+.checkin-card h4 {
+  font-family: var(--font-display);
+  font-size: 0.95rem; font-weight: 700;
+  letter-spacing: -0.02em; line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.checkin-card p { font-size: 13px; line-height: 1.55; opacity: .7; }
+
+/* ─── COMMIT ─── */
+.commit-layout {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+}
+
+.commit-tile {
+  background: var(--bg);
+  padding: 36px 32px;
+}
+
+.commit-tile:nth-child(1) { background: var(--accent2); }
+.commit-tile:nth-child(4) { background: var(--ink); color: var(--white); }
+
+
+.commit-tile h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem; font-weight: 700;
+  letter-spacing: -0.02em; line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.commit-tile p { font-size: 13.5px; line-height: 1.6; opacity: .7; }
+
+/* ─── CLOSING ─── */
+.closing {
+  padding: 100px 40px;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 60px;
+  align-items: center;
+}
+
+.closing-text h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: 700; letter-spacing: -0.04em;
+  line-height: 1.0; margin-bottom: 24px;
+}
+.closing-text h2 em { color: var(--accent1); font-style: italic; }
+
+.closing-text p {
+  font-size: 1rem; color: var(--muted);
+  max-width: 44ch; line-height: 1.65;
+}
+
+.closing-card {
+  background: var(--accent3);
+  border-radius: 14px;
+  padding: 36px 32px;
+}
+
+.closing-card .cc-label {
+  font-family: var(--font-display);
+  font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; opacity: .55;
+  margin-bottom: 16px;
+}
+
+.closing-card .cc-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem; font-weight: 700;
+  letter-spacing: -0.03em; margin-bottom: 6px;
+}
+
+.closing-card .cc-role {
+  font-size: 13px; opacity: .6; margin-bottom: 24px;
+}
+
+.closing-card .cc-email {
+  font-family: var(--font-display);
+  font-size: 13px; font-weight: 700;
+  text-decoration: none; color: var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 2px;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  padding: 24px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--muted);
+  font-family: var(--font-display);
+}
+
+/* ─── MUSIC PLAYER ─── */
+.music-player {
+  position: fixed; bottom: 24px; left: 24px; z-index: 999;
+  display: flex; align-items: center; gap: 12px;
+  background: var(--ink);
+  padding: 10px 18px 10px 12px;
+  border-radius: 40px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  transition: opacity .3s;
+}
+
+.music-btn {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--accent2);
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: transform .15s, background .15s;
+}
+.music-btn:hover { transform: scale(1.08); }
+.music-btn svg { width: 14px; height: 14px; fill: var(--ink); }
+
+.music-info { display: flex; flex-direction: column; gap: 1px; }
+
+.music-title {
+  font-family: var(--font-display);
+  font-size: 11px; font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.music-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.music-vol {
+  display: flex; align-items: center; gap: 6px;
+  margin-left: 4px;
+}
+
+.music-vol input[type=range] {
+  -webkit-appearance: none;
+  width: 64px; height: 3px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.15);
+  outline: none; cursor: pointer;
+}
+.music-vol input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--accent2);
+}
+
+.music-bars {
+  display: flex; align-items: flex-end; gap: 2px;
+  height: 16px;
+}
+.music-bars span {
+  display: block; width: 3px;
+  background: var(--accent2);
+  border-radius: 2px;
+  animation: barBounce 0.8s ease-in-out infinite alternate;
+}
+.music-bars span:nth-child(1) { height: 6px;  animation-delay: 0s; }
+.music-bars span:nth-child(2) { height: 12px; animation-delay: 0.15s; }
+.music-bars span:nth-child(3) { height: 9px;  animation-delay: 0.3s; }
+.music-bars span:nth-child(4) { height: 14px; animation-delay: 0.1s; }
+.music-bars span:nth-child(5) { height: 7px;  animation-delay: 0.25s; }
+.music-bars.paused span { animation-play-state: paused; height: 4px !important; }
+
+@keyframes barBounce {
+  from { transform: scaleY(0.4); }
+  to   { transform: scaleY(1); }
+}
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-card { display: none; }
+  .learn-grid { grid-template-columns: 1fr 1fr; }
+  .mentor-layout { grid-template-columns: 1fr; }
+  .phase-row { grid-template-columns: 1fr; }
+  .phase-left { min-height: auto; }
+  .checkin-grid { grid-template-columns: 1fr 1fr; }
+  .commit-layout { grid-template-columns: 1fr; }
+  .closing { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  nav { padding: 0 20px; }
+  section { padding: 64px 20px; }
+  .hero { padding: 100px 20px 60px; }
+  .closing { padding: 64px 20px; }
+  footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+  .learn-grid { grid-template-columns: 1fr; }
+  .checkin-grid { grid-template-columns: 1fr; }
+  .mentor-small-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- EDIT BADGE -->
+<div class="edit-badge" id="editBadge">Đang chỉnh sửa</div>
+
+<!-- MUSIC PLAYER -->
+<div class="music-player" id="musicPlayer">
+  <button class="music-btn" id="musicBtn" title="Play / Pause">
+    <svg id="iconPlay" viewBox="0 0 24 24" style="display: none;"><path d="M8 5v14l11-7z"></path></svg>
+    <svg id="iconPause" viewBox="0 0 24 24" style=""><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+  </button>
+  <div class="music-info">
+    <div class="music-title">Jazz Background</div>
+    <div class="music-sub">NHẠC NỀN · LOOPING</div>
+  </div>
+  <div class="music-bars" id="musicBars">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="music-vol">
+    <input type="range" id="volSlider" min="0" max="1" step="0.05" value="0.35">
+  </div>
+</div>
+
+<!-- AUDIO (free jazz from Pixabay CDN) -->
+<audio id="bgMusic" loop="" preload="none">
+  <source src="https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo" contenteditable="true">Nguyễn Trường Giang</div>
+  <div class="nav-links">
+    <a href="file:///C:/Users/Windows%2010/Downloads/test/youtube-brand-proposal.html#learn">Mục tiêu học</a>
+    <a href="file:///C:/Users/Windows%2010/Downloads/test/youtube-brand-proposal.html#mentor">Đồng hành</a>
+    <a href="file:///C:/Users/Windows%2010/Downloads/test/youtube-brand-proposal.html#roadmap">Lộ trình</a>
+    <a href="file:///C:/Users/Windows%2010/Downloads/test/youtube-brand-proposal.html#contact">Liên hệ</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-text">
+    <div class="hero-tag" contenteditable="true">Proposal · Phát Triển Cá Nhân</div>
+    <h1>
+      <span contenteditable="true">Đề Xuất</span><br>
+      <span class="line2" contenteditable="true">Mentor</span>
+    </h1>
+    <p class="hero-desc" contenteditable="true"><span style="font-size: 16.8px;">Đề xuất chính thức về mối quan hệ mentor – mentee trong 6 tháng, để tôi học được tư duy lên kế hoạch, định hướng phát triển kênh và vận hành nội dung</span></p>
+  </div>
+
+  <div class="hero-card">
+    <div class="hero-card-label" contenteditable="true">Thông tin đề xuất</div>
+    <div class="hero-meta-row">
+      <div class="hero-meta-item">
+        <label>Người đề xuất</label>
+        <span contenteditable="true">Nguyễn Trường Giang</span>
+      </div>
+      <div class="hero-meta-item">
+        <label>Vị trí</label>
+        <span contenteditable="true">Video Editor</span>
+      </div>
+      <div class="hero-meta-item">
+        <label>Gửi đến</label>
+        <span contenteditable="true">Lê Phương Anh- Mentor</span>
+      </div>
+      <div class="hero-meta-item">
+        <label>Thời gian</label>
+        <span contenteditable="true">6/2026</span>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="file:///C:/Users/Windows%2010/Downloads/test/youtube-brand-proposal.html#roadmap" class="btn btn-primary">Xem lộ trình</a>
+      <a href="file:///C:/Users/Windows%2010/Downloads/test/youtube-brand-proposal.html#contact" class="btn btn-ghost">Liên hệ</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MARQUEE ══ -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>IDEATION</span><span class="dot">✦</span>
+    <span>KẾ HOẠCH</span><span class="dot">✦</span>
+    <span>ĐỊNH HƯỚNG</span><span class="dot">✦</span>
+    <span>SẢN XUẤT</span><span class="dot">✦</span>
+    <span>PHÁT TRIỂN</span><span class="dot">✦</span>
+    <span>MONETISE</span><span class="dot">✦</span>
+    <!-- duplicate for seamless loop -->
+    <span>IDEATION</span><span class="dot">✦</span>
+    <span>KẾ HOẠCH</span><span class="dot">✦</span>
+    <span>ĐỊNH HƯỚNG</span><span class="dot">✦</span>
+    <span>SẢN XUẤT</span><span class="dot">✦</span>
+    <span>PHÁT TRIỂN</span><span class="dot">✦</span>
+    <span>MONETISE</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- ══ 01. TRỌNG TÂM HỌC ══ -->
+<section id="learn">
+  <div class="section-header">
+    <div>
+      <h2 class="section-title" contenteditable="true"></h2><h2 class="section-title" style="font-family: &quot;Space Mono&quot;, monospace;">01. Mục tiêu<br><br></h2>
+    </div>
+  </div>
+
+  <div class="learn-grid">
+    <div class="learn-card">
+      <div class="num">01</div>
+      <h3 contenteditable="true">Lên kế hoạch<br>nội dung chiến lược</h3>
+      <p contenteditable="true">Xây dựng content map dài hạn, chọn ngách đúng, định hình content pillar&nbsp;</p>
+    </div>
+    <div class="learn-card">
+      <div class="num">02</div>
+      <h3 contenteditable="true">Định hướng<br>phát triển kênh</h3>
+      <p contenteditable="true">Hiểu kênh đang ở đâu trong vòng đời, cần làm gì tiếp theo và cách điều chỉnh khi thực tế không khớp kế hoạch.</p>
+    </div>
+    <div class="learn-card">
+      <div class="num">03</div>
+      <h3 contenteditable="true">Quy trình sản xuất<br>chuẩn hoá</h3>
+      <p contenteditable="true">Từ ideation đến publish: Học từ quy trình thực chiến của team.</p>
+    </div>
+    <div class="learn-card">
+      <div class="num">04</div>
+      <h3 contenteditable="true">Tư duy monetisation<br>&amp; quản lý doanh thu</h3>
+      <p contenteditable="true">&nbsp;Hiểu các luồng thu nhập, cách định giá, phân bổ và tái đầu tư có chiến lược.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 02. VAI TRÒ QUẢN LÝ ══ -->
+<section id="mentor">
+  <div class="section-header">
+    <div>
+      <h2 class="section-title" contenteditable="true">2. Mentor&nbsp;</h2>
+    </div>
+  </div>
+
+  <div class="mentor-layout">
+    <div class="mentor-big">
+      <div class="mentor-big-quote" contenteditable="true">"Người đồng hành cùng nhau phát triển"</div>
+      <p class="mentor-big-body" contenteditable="true">Tôi kỳ vọng xây dựng một mối quan hệ <strong style="color:#fff">đồng hành ,&nbsp;</strong>&nbsp;tham gia định hướng cùng tôi qua từng giai đoạn.&nbsp;</p>
+    </div>
+
+    <div class="mentor-small-grid">
+      <div class="mentor-card">
+        <h4 contenteditable="true">Truyền kinh nghiệm thực chiến</h4>
+        <p contenteditable="true">Chia sẻ những quyết định thực tế để tôi học được tư duy, không chỉ công thức.</p>
+      </div>
+      <div class="mentor-card">
+        <h4 contenteditable="true">Định hướng chiến lược</h4>
+        <p contenteditable="true">Mỗi giai đoạn, tôi trình bày kế hoạch và kỳ vọng nhận góc nhìn: tôi có đang đi đúng? Ưu tiên nào cần điều chỉnh?</p>
+      </div>
+      <div class="mentor-card">
+        <h4 contenteditable="true">Phản biện trung thực</h4>
+        <p contenteditable="true">Tôi cần feedback thật, không cần lời động viên. Nếu hướng đi chưa đúng, tôi muốn biết sớm để điều chỉnh kịp thời.</p>
+      </div>
+      <div class="mentor-card">
+        <h4 contenteditable="true">Cùng đánh giá kết quả</h4>
+        <p contenteditable="true">Cuối mỗi giai đoạn, cùng nhìn lại: đạt được gì, thiếu gì, bài học nào đáng giữ cho giai đoạn tiếp theo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 03. LỘ TRÌNH ══ -->
+<section id="roadmap">
+  <div class="section-header">
+    <div>
+      <h2 class="section-title" contenteditable="true">3. Lộ trình phát triển</h2>
+    </div>
+  </div>
+
+  <div class="phases">
+
+    <!-- PHASE 1 -->
+    <div class="phase-row">
+      <div class="phase-left">
+        <div>
+          <div class="ph-num" contenteditable="true">Giai đoạn 01</div>
+          <div class="ph-name" contenteditable="true">Học cách lên kế hoạch &amp; định hướng</div>
+        </div>
+        <div class="ph-span" contenteditable="true"><br></div>
+      </div>
+      <div class="phase-right">
+        <div class="ph-focus" contenteditable="true">Tư duy trước khi hành động</div>
+        <div>
+          <h4 contenteditable="true">Xây dựng chiến lược, không phải chỉ kế hoạch</h4>
+          <ul class="phase-items">
+            <li class="hl" contenteditable="true">✦ Học cách quản lý tiếp cận thị trường: nghiên cứu ngách bằng dữ liệu</li>
+            <li class="hl" contenteditable="true">✦ Học cách xây dựng content strategy dài hạn từ kinh nghiệm thực chiến</li>
+            <li contenteditable="true">Cách lập kế hoạch để phát triển kênh theo nghách nội dung&nbsp;</li>
+            <li contenteditable="true">Xây dựng brand : tên kênh, tone, visual direction</li>
+            <li contenteditable="true">Thiết lập content calendar theo tháng dựa trên định hướng đã xác nhận</li>
+          </ul>
+        </div>
+        <div class="phase-kpis">
+          <span class="kpi-tag" contenteditable="true">✔ Brand strategy</span>
+          <span class="kpi-tag" contenteditable="true">✔ Content map&nbsp;</span>
+          <span class="kpi-tag" contenteditable="true">✔ Được mentor định hướng</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 2 -->
+    <div class="phase-row">
+      <div class="phase-left">
+        <div>
+          <div class="ph-num" contenteditable="true">Giai đoạn 02</div>
+          <div class="ph-name" contenteditable="true">Xây dựng &amp; Ra mắt thực chiến</div>
+        </div>
+        <div class="ph-span" contenteditable="true"><br></div>
+      </div>
+      <div class="phase-right">
+        <div class="ph-focus" contenteditable="true">Triển khai kế hoạch thành nội dung thực tế</div>
+        <div>
+          <h4 contenteditable="true">Ra mắt kênh, tích luỹ dữ liệu thực tế</h4>
+          <ul class="phase-items">
+            <li class="hl" contenteditable="true">✦ Học quy trình sản xuất chuẩn hoá của team</li>
+            <li class="hl" contenteditable="true">✦ Học cách đọc dữ liệu Analytics: đâu là tín hiệu, đâu là nhiễu?</li>
+            <li contenteditable="true">Xây dựng kế hoạch đăng hiệu quả</li>
+            <li contenteditable="true">Thực hiện A/B test thumbnail, tiêu đề , ghi chép có hệ thống</li>
+            <li contenteditable="true">Review giữa giai đoạn: trình bày kết quả thực tế với quản lý</li>
+          </ul>
+        </div>
+        <div class="phase-kpis">
+          <span class="kpi-tag" contenteditable="true">✔ Lập kế hoạch sản xuất</span>
+          <span class="kpi-tag" contenteditable="true">✔ Đọc tín hiệu</span>
+          <span class="kpi-tag" contenteditable="true">✔ Báo cáo qui trình</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 3 -->
+    <div class="phase-row">
+      <div class="phase-left">
+        <div>
+          <div class="ph-num" contenteditable="true">Giai đoạn 03</div>
+          <div class="ph-name" contenteditable="true">Tăng trưởng &amp; Monetisation</div>
+        </div>
+        <div class="ph-span" contenteditable="true"><br></div>
+      </div>
+      <div class="phase-right">
+        <div class="ph-focus" contenteditable="true">Hệ thống bền vững &amp; Doanh thu đầu tiên</div>
+        <div>
+          <h4 contenteditable="true">&nbsp;Xây dựng SOP cá nhân và tăng trưởng</h4>
+          <ul class="phase-items">
+            <li class="hl" contenteditable="true">✦ Học tư duy monetisation: khi nào ưu tiên doanh thu, khi nào ưu tiên tăng trưởng?</li>
+            <li class="hl" contenteditable="true">✦ Học cách quản lý nguồn doanh thu: phân bổ và tái đầu tư có chiến lược</li>
+            <li contenteditable="true">Đạt ngưỡng monetise thì cần chuẩn bị những gì để scale&nbsp;</li>
+            <li contenteditable="true">Cách kháng hiệu quả để không làm ảnh hưởng đến kênh</li>
+            <li contenteditable="true">Tổng kết cùng quản lý , định hướng giai đoạn tiếp theo</li>
+          </ul>
+        </div>
+        <div class="phase-kpis">
+          <span class="kpi-tag" contenteditable="true">🏆 Tư duy phân bổ doanh thu</span>
+          <span class="kpi-tag" contenteditable="true">🏆 Duy trì tăng trưởng</span>
+          <span class="kpi-tag" contenteditable="true">🏆 Định hướng phát triển</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ 04. NHỊP ĐỒNG HÀNH ══ -->
+<section>
+  <div class="section-header">
+    <div>
+      <h2 class="section-title" contenteditable="true">4. Kế hoạch trao đổi</h2>
+    </div>
+  </div>
+
+  <div class="checkin-grid">
+    <div class="checkin-card">
+      <div class="freq" contenteditable="true">1 lần / giai đoạn · ~45 phút</div>
+      <h4 contenteditable="true">Định hướng chiến lược</h4>
+      <p contenteditable="true">Đầu mỗi giai đoạn, tôi trình bày kế hoạch — Mentor cho góc nhìn và điều chỉnh cùng tôi trước khi thực thi.</p>
+    </div>
+    <div class="checkin-card">
+      <div class="freq" contenteditable="true">1 lần / tháng · ~20 phút</div>
+      <h4 contenteditable="true">Check-in tiến độ nhanh</h4>
+      <p contenteditable="true">Cập nhật ngắn: đang ở đâu, dữ liệu thực tế ra sao, có điểm nào cần góc nhìn từ mentor không?</p>
+    </div>
+    <div class="checkin-card">
+      <div class="freq" contenteditable="true">Linh hoạt&nbsp;</div>
+      <h4 contenteditable="true">Hỏi nhanh qua chat</h4>
+      <p contenteditable="true">Khi gặp quyết định quan trọng cần tham khảo ngay&nbsp; hỏi ngắn gọn, mentor phản hồi khi thuận tiện.</p>
+    </div>
+    <div class="checkin-card">
+      <div class="freq" contenteditable="true">Cuối tháng · ~1 tiếng</div>
+      <h4 contenteditable="true">Tổng kết &amp; Định hướng tiếp</h4>
+      <p contenteditable="true">Nhìn lại toàn bộ hành trình, rút bài học, và cùng lên khung kế hoạch cho giai đoạn phát triển tiếp theo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 05. CAM KẾT ══ -->
+<section>
+  <div class="section-header">
+    <div>
+      <h2 class="section-title" contenteditable="true">5. Cam kết cá nhân</h2>
+    </div>
+  </div>
+
+  <div class="commit-layout">
+    <div class="commit-tile">
+      <h3 contenteditable="true">Không ảnh hưởng công việc</h3>
+      <p contenteditable="true">Toàn bộ hoạt động cá nhân thực hiện ngoài giờ làm việc. Deliverable của team luôn là ưu tiên số một.</p>
+    </div>
+    <div class="commit-tile">
+      <h3 contenteditable="true">Minh bạch &amp; chủ động</h3>
+      <p contenteditable="true">Tôi sẽ là người chủ động cập nhật tiến độ&nbsp; kể cả khi kết quả chưa như kỳ vọng.</p>
+    </div>
+    <div class="commit-tile">
+      <h3 contenteditable="true">Bảo mật thông tin nội bộ</h3>
+      <p contenteditable="true">Không đề cập đến thương hiệu, quy trình hay thông tin nội bộ của công ty trong bất kỳ nội dung cá nhân nào.</p>
+    </div>
+    <div class="commit-tile">
+      <h3 contenteditable="true">Chia sẻ ngược lại</h3>
+      <p contenteditable="true">Những gì tôi học được về&nbsp; insight, dữ liệu, bài học , tôi sẽ mang lại chia sẻ với team khi hữu ích cho công việc chung.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CLOSING ══ -->
+<div class="closing" id="contact">
+  <div class="closing-text">
+    <h2>
+      <span contenteditable="true">6. Tổng kết<br></span>
+      <em contenteditable="true">Một hướng đi -<br>Một người đồng hành<br></em>
+    </h2>
+    <p contenteditable="true">
+      Cảm ơn chị đã dành thời gian đọc đề xuất này. Tôi mong có cơ hội được trao đổi trực tiếp và bắt đầu hành trình này cùng nhau.
+    </p>
+  </div>
+
+  <div class="closing-card">
+    <div class="cc-label" contenteditable="true">Liên hệ</div>
+    <div class="cc-name" contenteditable="true">Giang Nguyễn</div>
+    <div class="cc-role" contenteditable="true">Video Editor · [Life Media]</div>
+    <a class="cc-email" href="mailto:email@example.com" contenteditable="true">giangnguyenn2412@gmail.com</a>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <span contenteditable="true"><br></span>
+  <span contenteditable="true">Life Media</span>
+</footer>
+
+<script>
+  /* ── EDIT BADGE ── */
+  const badge = document.getElementById('editBadge');
+  let hideTimer;
+  document.querySelectorAll('[contenteditable]').forEach(el => {
+    el.addEventListener('focus', () => { clearTimeout(hideTimer); badge.classList.add('show'); });
+    el.addEventListener('blur',  () => { hideTimer = setTimeout(() => badge.classList.remove('show'), 1200); });
+  });
+
+  /* ── SMOOTH SCROLL ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  /* ── MUSIC PLAYER ── */
+  const audio   = document.getElementById('bgMusic');
+  const btn     = document.getElementById('musicBtn');
+  const bars    = document.getElementById('musicBars');
+  const iconPlay  = document.getElementById('iconPlay');
+  const iconPause = document.getElementById('iconPause');
+  const vol     = document.getElementById('volSlider');
+  let playing = false;
+
+  audio.volume = parseFloat(vol.value);
+
+  btn.addEventListener('click', () => {
+    if (!playing) {
+      audio.play().then(() => {
+        playing = true;
+        iconPlay.style.display  = 'none';
+        iconPause.style.display = '';
+        bars.classList.remove('paused');
+      }).catch(() => {});
+    } else {
+      audio.pause();
+      playing = false;
+      iconPlay.style.display  = '';
+      iconPause.style.display = 'none';
+      bars.classList.add('paused');
+    }
+  });
+
+  vol.addEventListener('input', () => { audio.volume = parseFloat(vol.value); });
+</script>
+
+
+</body></html>
